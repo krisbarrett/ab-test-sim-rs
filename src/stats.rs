@@ -1,5 +1,8 @@
 use statrs::distribution::{ContinuousCDF, Gamma};
 
+/// prop_test is the test of equal or given proportions. It returns a p-value that represents the
+/// probability that the observed result was due to chance. Note that a p-value < 0.05 is generally
+/// considered to be statistically significant.
 pub fn prop_test(control_conversions: u32, control_views: u32, variation_conversions: u32, variation_views: u32) -> Result<f64, &'static str> {
     if control_conversions == 0 || variation_conversions == 0 {
         return Err("conversions must be greater than 0")
